@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <title>DApp Security — OnChainTrust</title>
+  <meta name="description" content="Protect your on-chain interactions with OnChainTrust's DApp security tools. Kill switch, phishing prevention, and real-time threat detection.">
+  <meta property="og:title" content="DApp Security — OnChainTrust">
+  <meta property="og:description" content="Protect your on-chain interactions with OnChainTrust's DApp security tools. Kill switch, phishing prevention, and real-time threat detection.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DApp Security — OnChainTrust">
+  <meta name="twitter:description" content="Protect your on-chain interactions with OnChainTrust's DApp security tools. Kill switch, phishing prevention, and real-time threat detection.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#0F1B2D',
+            'navy-card': '#162336',
+            offwhite: '#F8FAFC',
+            teal: '#0891B2',
+            cyan: '#22D3EE',
+            'slate-dark': '#1E293B',
+            'slate-mid': '#64748B',
+            'slate-light': '#CBD5E1',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#DC2626',
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Times New Roman', 'serif'],
+            sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="font-sans text-slate-light bg-navy antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-sm border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2 text-white font-semibold text-lg">
+          <svg class="w-8 h-8 text-teal" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2L4 8v8c0 7.18 5.12 13.9 12 15.4C22.88 29.9 28 23.18 28 16V8L16 2z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M12 16l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          OnChainTrust
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <div class="hidden md:flex items-center gap-6">
+          <a href="/#features" class="text-sm text-slate-light hover:text-white transition-colors">Features</a>
+          <a href="/#how-it-works" class="text-sm text-slate-light hover:text-white transition-colors">How It Works</a>
+          <a href="/#use-cases" class="text-sm text-slate-light hover:text-white transition-colors">Use Cases</a>
+          <a href="/#contact" class="text-sm text-slate-light hover:text-white transition-colors">Contact</a>
+          <a href="/security.html" class="text-sm text-cyan font-medium border-b border-cyan pb-0.5">DApp Security &rarr;</a>
+          <a href="/#contact" class="ml-2 inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-teal text-white hover:bg-teal/90 transition-colors">Get Started</a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-light hover:text-white transition-colors" aria-label="Toggle menu">
+          <svg id="hamburger-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-navy border-t border-white/5">
+      <div class="px-4 py-4 space-y-3">
+        <a href="/#features" class="block text-sm text-slate-light hover:text-white transition-colors">Features</a>
+        <a href="/#how-it-works" class="block text-sm text-slate-light hover:text-white transition-colors">How It Works</a>
+        <a href="/#use-cases" class="block text-sm text-slate-light hover:text-white transition-colors">Use Cases</a>
+        <a href="/#contact" class="block text-sm text-slate-light hover:text-white transition-colors">Contact</a>
+        <a href="/security.html" class="block text-sm text-cyan font-medium">DApp Security &rarr;</a>
+        <a href="/#contact" class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-teal text-white hover:bg-teal/90 transition-colors">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 sm:pt-40 sm:pb-28 bg-navy overflow-hidden">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-teal/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan/10 rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block px-4 py-1.5 mb-6 text-xs font-semibold tracking-widest text-teal uppercase bg-teal/10 rounded-full border border-teal/20">DApp Security Tools</span>
+      <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">Protecting Your On-Chain<br class="hidden sm:block"> Interactions</h1>
+      <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-light/80 mb-10">OnChainTrust provides a suite of security tools that protect users against phishing attacks, front-end compromises, and malicious smart contract interactions.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#security-features" class="inline-flex items-center px-6 py-3 text-base font-medium rounded-lg bg-teal text-white hover:bg-teal/90 transition-colors shadow-lg shadow-teal/20">
+          Explore Features
+          <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <a href="/" class="inline-flex items-center px-6 py-3 text-base font-medium text-slate-light hover:text-white transition-colors">
+          Back to Compliance &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Features Section -->
+  <section id="security-features" class="py-20 sm:py-28 bg-offwhite">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-4">Security Features</h2>
+        <p class="max-w-2xl mx-auto text-slate-mid">Comprehensive protection for every layer of your on-chain interactions.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Kill Switch -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-navy mb-3">Kill Switch</h3>
+          <p class="text-slate-mid leading-relaxed">In reaction to incident reports, our Kill Switch feature allows DApp owners to discourage users from interacting with their website during active security incidents or hacks. Instant response to protect your users.</p>
+        </div>
+        <!-- Phishing Attack Prevention -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-navy mb-3">Phishing Attack Prevention</h3>
+          <p class="text-slate-mid leading-relaxed">Customer education is important, but it doesn't protect against frontend and DNS hacks. OnChainTrust provides automated protection at the wallet level.</p>
+        </div>
+        <!-- Front-End Attack Prevention -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-navy mb-3">Front-End Attack Prevention</h3>
+          <p class="text-slate-mid leading-relaxed">We automatically protect against interactions with malicious contracts on verified domains. Even if a DApp's frontend is compromised, your transactions stay safe.</p>
+        </div>
+        <!-- Clipboard Hijacking Prevention -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 rounded-xl bg-teal/10 flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9.334a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-navy mb-3">Clipboard Hijacking Prevention</h3>
+          <p class="text-slate-mid leading-relaxed">We protect against attacks that track and change your local clipboard for blockchain addresses. Never accidentally send funds to the wrong address.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-20 sm:py-28 bg-navy">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">How DApp Security Works</h2>
+        <p class="max-w-2xl mx-auto text-slate-light/70">A simple three-step process that keeps your users safe from the moment they connect.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="relative text-center">
+          <div class="w-16 h-16 rounded-full bg-teal/10 border-2 border-teal/30 flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-bold text-teal">1</span>
+          </div>
+          <!-- Connector line (desktop only) -->
+          <div class="hidden md:block absolute top-8 left-[calc(50%+2.5rem)] w-[calc(100%-5rem)] h-px bg-gradient-to-r from-teal/40 to-teal/10"></div>
+          <h3 class="text-xl font-semibold text-white mb-3">Domain Verification</h3>
+          <p class="text-slate-light/70 leading-relaxed">DApp owners register and verify their domain and associated smart contract addresses with OnChainTrust.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="relative text-center">
+          <div class="w-16 h-16 rounded-full bg-teal/10 border-2 border-teal/30 flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-bold text-teal">2</span>
+          </div>
+          <div class="hidden md:block absolute top-8 left-[calc(50%+2.5rem)] w-[calc(100%-5rem)] h-px bg-gradient-to-r from-teal/40 to-teal/10"></div>
+          <h3 class="text-xl font-semibold text-white mb-3">Real-Time Monitoring</h3>
+          <p class="text-slate-light/70 leading-relaxed">Our system continuously monitors for discrepancies between verified contracts and what's presented to users.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="relative text-center">
+          <div class="w-16 h-16 rounded-full bg-teal/10 border-2 border-teal/30 flex items-center justify-center mx-auto mb-6">
+            <span class="text-2xl font-bold text-teal">3</span>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-3">Instant Protection</h3>
+          <p class="text-slate-light/70 leading-relaxed">When a threat is detected, users are warned before signing any malicious transaction. Kill Switch can be activated instantly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Auto-Detect Section -->
+  <section class="py-20 sm:py-28 bg-offwhite">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left: Text Content -->
+        <div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-4">Auto-Detect Known Scams</h2>
+          <p class="text-slate-mid text-lg mb-8">OnChainTrust operates one of the largest public databases of labeled smart contract addresses. We help you as a second line of defense in detecting potentially unsafe addresses.</p>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-mid">Community-reported scam addresses</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-mid">Real-time blacklist updates</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-mid">Cross-chain address verification</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-success mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-slate-mid">Integration with major threat databases</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Right: Placeholder Graphic -->
+        <div class="flex items-center justify-center">
+          <div class="w-full max-w-md aspect-square rounded-2xl bg-navy/5 border-2 border-dashed border-navy/10 flex flex-col items-center justify-center gap-4">
+            <svg class="w-20 h-20 text-teal/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+            </svg>
+            <span class="text-sm text-slate-mid/60 font-medium">Scam Detection Engine</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- On-Chain Insights Section -->
+  <section class="py-20 sm:py-28 bg-navy">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">On-Chain Insights</h2>
+        <p class="text-slate-light/70 text-lg mb-10">Double-check on-chain statistics of the address you are going to interact with. Get detailed analytics and risk scores before every transaction.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10 text-left">
+          <div class="flex items-start gap-3 bg-navy-card rounded-xl p-5 border border-white/5">
+            <svg class="w-5 h-5 text-cyan mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
+            <span class="text-slate-light">Transaction history analysis</span>
+          </div>
+          <div class="flex items-start gap-3 bg-navy-card rounded-xl p-5 border border-white/5">
+            <svg class="w-5 h-5 text-cyan mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.746 3.746 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+            <span class="text-slate-light">Contract verification status</span>
+          </div>
+          <div class="flex items-start gap-3 bg-navy-card rounded-xl p-5 border border-white/5">
+            <svg class="w-5 h-5 text-cyan mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+            <span class="text-slate-light">Risk scoring</span>
+          </div>
+          <div class="flex items-start gap-3 bg-navy-card rounded-xl p-5 border border-white/5">
+            <svg class="w-5 h-5 text-cyan mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+            <span class="text-slate-light">Community trust ratings</span>
+          </div>
+        </div>
+        <a href="https://app.onchaintrust.org/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 text-base font-medium rounded-lg bg-teal text-white hover:bg-teal/90 transition-colors shadow-lg shadow-teal/20">
+          Try Beta
+          <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MetaMask Snap Section -->
+  <section class="py-20 sm:py-28 bg-offwhite">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="w-16 h-16 rounded-2xl bg-warning/10 flex items-center justify-center mx-auto mb-6">
+          <svg class="w-9 h-9 text-warning" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.36 2L13.05 8.17l1.54-3.64L21.36 2z" fill="currentColor"/>
+            <path d="M2.64 2l8.24 6.24-1.47-3.57L2.64 2zM18.32 16.94l-2.21 3.38 4.73 1.3 1.36-4.6-3.88-.08zM1.81 17.02l1.35 4.6 4.73-1.3-2.21-3.38-3.87.08z" fill="currentColor"/>
+            <path d="M7.63 10.65l-1.88 2.84 4.69.21-.17-5.05-2.64 2zM16.37 10.65l-2.68-2.07-.11 5.12 4.68-.21-1.89-2.84zM7.89 20.32l2.83-1.38-2.44-1.9-.39 3.28zM13.28 18.94l2.83 1.38-.39-3.28-2.44 1.9z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-navy mb-4">Available as a MetaMask Snap</h2>
+        <p class="text-slate-mid text-lg mb-8">Install OnChainTrust directly in your MetaMask wallet. No additional software needed — security that works where you already are.</p>
+        <a href="https://snaps.metamask.io/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 text-base font-medium rounded-lg bg-warning text-white hover:bg-warning/90 transition-colors shadow-lg shadow-warning/20">
+          Install Snap
+          <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 sm:py-28 bg-navy">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">Ready to secure your DApp?</h2>
+        <p class="text-slate-light/70 text-lg mb-10">Whether you're a DApp developer looking to protect your users, or a user wanting safer on-chain interactions, OnChainTrust has you covered.</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/#contact" class="inline-flex items-center px-6 py-3 text-base font-medium rounded-lg bg-teal text-white hover:bg-teal/90 transition-colors shadow-lg shadow-teal/20">Get in Touch</a>
+          <a href="https://app.onchaintrust.org/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 text-base font-medium rounded-lg border border-white/20 text-white hover:bg-white/5 transition-colors">
+            Launch App
+            <svg class="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-dark border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 text-white font-semibold text-lg">
+          <svg class="w-7 h-7 text-teal" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2L4 8v8c0 7.18 5.12 13.9 12 15.4C22.88 29.9 28 23.18 28 16V8L16 2z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M12 16l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          OnChainTrust
+        </div>
+        <!-- Links -->
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          <a href="/#features" class="text-slate-light hover:text-white transition-colors">Features</a>
+          <a href="/#how-it-works" class="text-slate-light hover:text-white transition-colors">How It Works</a>
+          <a href="/security.html" class="text-cyan hover:text-cyan/80 transition-colors">DApp Security</a>
+          <a href="#" class="text-slate-light hover:text-white transition-colors">Docs</a>
+          <a href="#" class="text-slate-light hover:text-white transition-colors">GitHub</a>
+        </div>
+        <!-- Social -->
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-slate-mid hover:text-white transition-colors" aria-label="Twitter / X">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="text-slate-mid hover:text-white transition-colors" aria-label="GitHub">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="mt-8 pt-8 border-t border-white/5 text-sm text-slate-mid">
+        &copy; 2026 OnChainTrust. Open compliance infrastructure for tokenized finance.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    (function() {
+      var btn = document.getElementById('mobile-menu-btn');
+      var menu = document.getElementById('mobile-menu');
+      var hamburger = document.getElementById('hamburger-icon');
+      var close = document.getElementById('close-icon');
+
+      btn.addEventListener('click', function() {
+        var isOpen = !menu.classList.contains('hidden');
+        if (isOpen) {
+          menu.classList.add('hidden');
+          hamburger.classList.remove('hidden');
+          close.classList.add('hidden');
+        } else {
+          menu.classList.remove('hidden');
+          hamburger.classList.add('hidden');
+          close.classList.remove('hidden');
+        }
+      });
+
+      // Close menu when a link is clicked
+      var links = menu.querySelectorAll('a');
+      links.forEach(function(link) {
+        link.addEventListener('click', function() {
+          menu.classList.add('hidden');
+          hamburger.classList.remove('hidden');
+          close.classList.add('hidden');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
