@@ -98,7 +98,7 @@
         <p class="text-slate-light text-lg md:text-xl leading-relaxed mb-8 max-w-xl">OnChainTrust is the compliance verification layer that makes GLEIF&#8217;s verifiable Legal Entity Identifier work natively with tokenized assets on Ethereum.</p>
         <div class="flex flex-wrap gap-4">
           <a href="#problem" class="bg-teal hover:bg-teal/80 text-white font-medium px-6 py-3 rounded transition">Learn More</a>
-          <a href="#" class="border border-white/30 hover:border-white/60 text-white font-medium px-6 py-3 rounded transition">Read the Docs</a>
+          <a href="https://docs.onchaintrust.org" class="border border-white/30 hover:border-white/60 text-white font-medium px-6 py-3 rounded transition">Read the Docs</a>
         </div>
       </div>
       <!-- Right visual -->
@@ -420,7 +420,7 @@
     <div class="max-w-2xl mx-auto px-5 text-center">
       <h2 class="font-serif text-white text-3xl md:text-4xl mb-10">Ready to bring institutional compliance to your tokenized assets?</h2>
 
-      <form class="text-left space-y-4 mb-8" onsubmit="event.preventDefault();">
+      <form id="contact-form" class="text-left space-y-4 mb-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input type="text" name="name" placeholder="Name" required class="w-full bg-navy-card border border-white/10 rounded px-4 py-3 text-white placeholder-slate-mid text-sm focus:outline-none focus:border-teal transition">
           <input type="email" name="email" placeholder="Email" required class="w-full bg-navy-card border border-white/10 rounded px-4 py-3 text-white placeholder-slate-mid text-sm focus:outline-none focus:border-teal transition">
@@ -457,16 +457,16 @@
           <a href="#features" class="text-slate-light hover:text-white transition">Features</a>
           <a href="#how-it-works" class="text-slate-light hover:text-white transition">How It Works</a>
           <a href="/security.html" class="text-slate-light hover:text-white transition">DApp Security</a>
-          <a href="#" class="text-slate-light hover:text-white transition">Docs</a>
-          <a href="#" class="text-slate-light hover:text-white transition">GitHub</a>
+          <a href="https://docs.onchaintrust.org" class="text-slate-light hover:text-white transition">Docs</a>
+          <a href="https://github.com/OnChainTrust" class="text-slate-light hover:text-white transition">GitHub</a>
         </div>
 
         <!-- Social -->
         <div class="flex gap-4">
-          <a href="#" class="text-slate-mid hover:text-white transition" aria-label="Twitter">
+          <a href="https://x.com/onchaintrust" target="_blank" rel="noopener noreferrer" class="text-slate-mid hover:text-white transition" aria-label="Twitter">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
-          <a href="#" class="text-slate-mid hover:text-white transition" aria-label="GitHub">
+          <a href="https://github.com/OnChainTrust" target="_blank" rel="noopener noreferrer" class="text-slate-mid hover:text-white transition" aria-label="GitHub">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           </a>
         </div>
@@ -498,6 +498,19 @@
         openIcon.classList.remove('hidden');
         closeIcon.classList.add('hidden');
       });
+    });
+
+    // Contact form → mailto
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value;
+      const email = form.email.value;
+      const company = form.company.value;
+      const message = form.message.value;
+      const subject = encodeURIComponent('OnChainTrust Inquiry' + (company ? ' — ' + company : ''));
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + (company ? '\nCompany: ' + company : '') + '\n\n' + message);
+      window.location.href = 'mailto:info@onchaintrust.org?subject=' + subject + '&body=' + body;
     });
   </script>
 </body>
