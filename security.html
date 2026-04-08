@@ -126,6 +126,22 @@
       <h2 class="font-serif text-slate-dark text-3xl md:text-4xl mb-4">Why DApps Need a Second Line of Defense</h2>
       <p class="text-slate-mid text-lg max-w-3xl mb-12">Frontend hacks, DNS hijacks, and phishing domains are increasing. When a DApp&#8217;s interface is compromised, users sign transactions to malicious contracts without knowing. By the time the team reacts, funds are gone.</p>
 
+      <!-- Stats -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-white rounded-lg shadow-sm p-6 text-center">
+          <div class="text-danger text-4xl font-bold font-serif mb-2">$1.5B+</div>
+          <p class="text-slate-mid text-sm">Lost to DApp exploits and frontend attacks in 2025</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-6 text-center">
+          <div class="text-danger text-4xl font-bold font-serif mb-2">30+</div>
+          <p class="text-slate-mid text-sm">Major frontend and DNS hijack incidents in the last 12 months</p>
+        </div>
+        <div class="bg-white rounded-lg shadow-sm p-6 text-center">
+          <div class="text-danger text-4xl font-bold font-serif mb-2">0</div>
+          <p class="text-slate-mid text-sm">Seconds for a compromised frontend to start draining wallets</p>
+        </div>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Frontend Hacks -->
         <div class="bg-white rounded-lg shadow-sm p-8">
@@ -214,17 +230,83 @@
     </div>
   </section>
 
-  <!-- ============ 4. HOW IT WORKS ============ -->
-  <section id="how-it-works" class="bg-offwhite py-20 md:py-24">
+  <!-- ============ WHAT USERS SEE ============ -->
+  <section class="bg-offwhite py-20 md:py-24">
     <div class="max-w-[1200px] mx-auto px-5">
-      <h2 class="font-serif text-slate-dark text-3xl md:text-4xl mb-12 text-center">How It Works</h2>
+      <h2 class="font-serif text-slate-dark text-3xl md:text-4xl mb-4 text-center">What Users See in Their Wallet</h2>
+      <p class="text-slate-mid text-lg text-center max-w-3xl mx-auto mb-12">Wallets with OnChainTrust integration display verified information about the address you&#8217;re about to interact with &#8212; before you sign.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- LEI Information -->
+        <div class="bg-white rounded-lg shadow-sm p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/>
+              </svg>
+            </div>
+            <h3 class="text-slate-dark text-lg font-semibold">Legal Entity Identity</h3>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed mb-3">See the verified legal entity behind the address &#8212; company name, LEI number, jurisdiction, and organizational role &#8212; sourced from the entity&#8217;s vLEI credential.</p>
+          <p class="font-mono text-xs text-teal bg-offwhite rounded px-3 py-2">Acme Corp &#183; LEI: 5493001KJTIIGC8Y1R12 &#183; Frankfurt, DE</p>
+        </div>
+
+        <!-- Transaction Statistics -->
+        <div class="bg-white rounded-lg shadow-sm p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
+              </svg>
+            </div>
+            <h3 class="text-slate-dark text-lg font-semibold">On-Chain Activity</h3>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed mb-3">Transaction volume, total value transferred, and number of unique addresses that have interacted with this contract &#8212; so you can gauge trust at a glance.</p>
+          <p class="font-mono text-xs text-teal bg-offwhite rounded px-3 py-2">12,847 txns &#183; 1,204 unique wallets &#183; $48.2M volume</p>
+        </div>
+
+        <!-- Whitelist Status -->
+        <div class="bg-white rounded-lg shadow-sm p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-slate-dark text-lg font-semibold">Whitelist Status</h3>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed mb-3">Confirms whether this address is explicitly declared as an authorized contract for the domain you&#8217;re interacting from. If it&#8217;s not on the whitelist, you&#8217;ll see a warning before signing.</p>
+          <p class="font-mono text-xs text-success bg-success/5 rounded px-3 py-2">&#10003; Address whitelisted for app.uniswap.org</p>
+        </div>
+
+        <!-- Domain Ownership -->
+        <div class="bg-white rounded-lg shadow-sm p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center">
+              <svg class="w-5 h-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A9 9 0 013 12c0-1.605.42-3.113 1.157-4.418"/>
+              </svg>
+            </div>
+            <h3 class="text-slate-dark text-lg font-semibold">Verified Domain Owner</h3>
+          </div>
+          <p class="text-slate-mid text-sm leading-relaxed mb-3">Shows which legal entity has verified ownership of the domain you&#8217;re browsing &#8212; linking the website you see to a real, accountable organization.</p>
+          <p class="font-mono text-xs text-teal bg-offwhite rounded px-3 py-2">uniswap.org &#8594; Uniswap Labs &#183; verified via vLEI</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. HOW IT WORKS ============ -->
+  <section id="how-it-works" class="bg-navy py-20 md:py-24">
+    <div class="max-w-[1200px] mx-auto px-5">
+      <h2 class="font-serif text-white text-3xl md:text-4xl mb-12 text-center">How It Works</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-4 gap-0 items-start">
         <!-- Step 1 -->
         <div class="relative flex flex-col items-center text-center px-4">
           <div class="w-14 h-14 rounded-full bg-teal flex items-center justify-center text-white text-xl font-bold mb-6">1</div>
-          <h3 class="text-slate-dark text-base font-semibold mb-3">DApp Owner Registers</h3>
-          <p class="text-slate-mid text-sm leading-relaxed">Register your domain and verify ownership on OnChainTrust. Declare the smart contract addresses your users should interact with.</p>
+          <h3 class="text-white text-base font-semibold mb-3">DApp Owner Registers</h3>
+          <p class="text-slate-light text-sm leading-relaxed">Register your domain and verify ownership on OnChainTrust. Declare the smart contract addresses your users should interact with.</p>
           <!-- Arrow desktop -->
           <div class="hidden md:block absolute top-7 -right-3 w-6">
             <svg class="w-full text-teal" viewBox="0 0 32 8" fill="none"><path d="M0 4h28m0 0l-4-3.5M28 4l-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -238,8 +320,8 @@
         <!-- Step 2 -->
         <div class="relative flex flex-col items-center text-center px-4">
           <div class="w-14 h-14 rounded-full bg-teal flex items-center justify-center text-white text-xl font-bold mb-6">2</div>
-          <h3 class="text-slate-dark text-base font-semibold mb-3">Users Install Extension</h3>
-          <p class="text-slate-mid text-sm leading-relaxed">Users install the OnChainTrust browser extension or use a wallet with OnChainTrust integration. No setup needed &#8212; protection is automatic.</p>
+          <h3 class="text-white text-base font-semibold mb-3">Users Install Extension</h3>
+          <p class="text-slate-light text-sm leading-relaxed">Users install the OnChainTrust browser extension or use a wallet with OnChainTrust integration. No setup needed &#8212; protection is automatic.</p>
           <div class="hidden md:block absolute top-7 -right-3 w-6">
             <svg class="w-full text-teal" viewBox="0 0 32 8" fill="none"><path d="M0 4h28m0 0l-4-3.5M28 4l-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
@@ -251,8 +333,8 @@
         <!-- Step 3 -->
         <div class="relative flex flex-col items-center text-center px-4">
           <div class="w-14 h-14 rounded-full bg-teal flex items-center justify-center text-white text-xl font-bold mb-6">3</div>
-          <h3 class="text-slate-dark text-base font-semibold mb-3">Real-Time Protection</h3>
-          <p class="text-slate-mid text-sm leading-relaxed">Every time a user initiates a transaction from a verified domain, OnChainTrust checks the target address against the whitelist. Unrecognized addresses are flagged.</p>
+          <h3 class="text-white text-base font-semibold mb-3">Real-Time Protection</h3>
+          <p class="text-slate-light text-sm leading-relaxed">Every time a user initiates a transaction from a verified domain, OnChainTrust checks the target address against the whitelist. Unrecognized addresses are flagged.</p>
           <div class="hidden md:block absolute top-7 -right-3 w-6">
             <svg class="w-full text-teal" viewBox="0 0 32 8" fill="none"><path d="M0 4h28m0 0l-4-3.5M28 4l-4 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
@@ -264,46 +346,46 @@
         <!-- Step 4 -->
         <div class="flex flex-col items-center text-center px-4">
           <div class="w-14 h-14 rounded-full bg-teal flex items-center justify-center text-white text-xl font-bold mb-6">4</div>
-          <h3 class="text-slate-dark text-base font-semibold mb-3">Incident Response</h3>
-          <p class="text-slate-mid text-sm leading-relaxed">If something goes wrong, the DApp owner activates the Kill Switch. All users are immediately warned. Transactions are blocked until the all-clear.</p>
+          <h3 class="text-white text-base font-semibold mb-3">Incident Response</h3>
+          <p class="text-slate-light text-sm leading-relaxed">If something goes wrong, the DApp owner activates the Kill Switch. All users are immediately warned. Transactions are blocked until the all-clear.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============ 5. FOR DAPP OWNERS ============ -->
-  <section id="for-dapp-owners" class="bg-navy py-20 md:py-24">
+  <section id="for-dapp-owners" class="bg-offwhite py-20 md:py-24">
     <div class="max-w-[1200px] mx-auto px-5">
-      <h2 class="font-serif text-white text-3xl md:text-4xl mb-12">For DApp Owners</h2>
+      <h2 class="font-serif text-slate-dark text-3xl md:text-4xl mb-12">For DApp Owners</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Left: Why integrate -->
         <div>
-          <h3 class="text-white text-xl font-semibold mb-6">Why integrate</h3>
+          <h3 class="text-slate-dark text-xl font-semibold mb-6">Why integrate</h3>
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-slate-light text-base">Protect your users from frontend attacks without changing your smart contracts</span>
+              <span class="text-slate-mid text-base">Protect your users from frontend attacks without changing your smart contracts</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-slate-light text-base">Show a verified trust badge that users recognize</span>
+              <span class="text-slate-mid text-base">Show a verified trust badge that users recognize</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-slate-light text-base">One-click incident response with Kill Switch</span>
+              <span class="text-slate-mid text-base">One-click incident response with Kill Switch</span>
             </li>
             <li class="flex items-start gap-3">
               <svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-slate-light text-base">No cost to end users &#8212; protection is transparent</span>
+              <span class="text-slate-mid text-base">No cost to end users &#8212; protection is transparent</span>
             </li>
           </ul>
         </div>
 
         <!-- Right: Integration -->
-        <div class="bg-navy-card rounded-lg p-8">
-          <h3 class="text-white text-xl font-semibold mb-4">Quick Integration</h3>
-          <p class="text-slate-light text-base leading-relaxed mb-6">Register your domain, verify ownership, declare your contract addresses. Your users are protected immediately if they use the OnChainTrust extension or a compatible wallet.</p>
+        <div class="bg-white rounded-lg shadow-sm p-8">
+          <h3 class="text-slate-dark text-xl font-semibold mb-4">Quick Integration</h3>
+          <p class="text-slate-mid text-base leading-relaxed mb-6">Register your domain, verify ownership, declare your contract addresses. Your users are protected immediately if they use the OnChainTrust extension or a compatible wallet.</p>
           <a href="https://app.onchaintrust.org" class="inline-block bg-teal hover:bg-teal/80 text-white font-medium px-6 py-3 rounded transition mb-3">Register Your DApp</a>
           <p class="text-slate-mid text-xs">Free during beta. Enterprise plans coming soon.</p>
         </div>
@@ -312,14 +394,14 @@
   </section>
 
   <!-- ============ 6. BRIDGE SECTION ============ -->
-  <section class="bg-offwhite py-20 md:py-24">
+  <section class="bg-navy py-20 md:py-24">
     <div class="max-w-3xl mx-auto px-5">
-      <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+      <div class="bg-navy-card rounded-lg overflow-hidden">
         <div class="flex">
           <div class="w-1.5 bg-teal flex-shrink-0"></div>
           <div class="p-8 md:p-10">
-            <h3 class="font-serif text-slate-dark text-xl md:text-2xl font-semibold mb-4">Coming Soon: vLEI-Verified Domain Owners</h3>
-            <p class="text-slate-mid text-base leading-relaxed mb-6">We&#8217;re integrating GLEIF&#8217;s verifiable Legal Entity Identifier (vLEI) into domain verification. Soon, DApp owners will be verified not just by domain ownership, but by cryptographic institutional identity. This means users will know exactly which legal entity operates the DApp they&#8217;re using &#8212; verified by the same standard used in global finance.</p>
+            <h3 class="font-serif text-white text-xl md:text-2xl font-semibold mb-4">Coming Soon: vLEI-Verified Domain Owners</h3>
+            <p class="text-slate-light text-base leading-relaxed mb-6">We&#8217;re integrating GLEIF&#8217;s verifiable Legal Entity Identifier (vLEI) into domain verification. Soon, DApp owners will be verified not just by domain ownership, but by cryptographic institutional identity. This means users will know exactly which legal entity operates the DApp they&#8217;re using &#8212; verified by the same standard used in global finance.</p>
             <a href="/" class="text-teal hover:text-teal/80 text-sm font-medium transition">Learn about our institutional compliance layer &rarr;</a>
           </div>
         </div>
@@ -352,7 +434,7 @@
             </svg>
             OnChainTrust
           </a>
-          <p class="text-slate-mid text-xs max-w-xs">Open compliance infrastructure for tokenized finance.</p>
+          <p class="text-slate-mid text-xs max-w-xs">Open infrastructure for on-chain trust.</p>
         </div>
 
         <!-- Links -->
@@ -375,7 +457,7 @@
       </div>
 
       <div class="border-t border-white/5 pt-6">
-        <p class="text-slate-mid text-xs text-center">&copy; 2026 OnChainTrust. Open compliance infrastructure for tokenized finance.</p>
+        <p class="text-slate-mid text-xs text-center">&copy; 2026 OnChainTrust. Open infrastructure for on-chain trust.</p>
       </div>
     </div>
   </footer>
